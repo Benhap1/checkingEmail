@@ -1,0 +1,28 @@
+package practice;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
+
+public class EmailList {
+    private TreeSet<String> emailSet = new TreeSet<>();
+
+    public void add(String email) {
+        String regex = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+                + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+        if (email.matches(regex)) {
+            emailSet.add(email.toLowerCase());
+        } else {
+            System.out.println();
+        }
+    }
+
+    public List<String> getSortedEmails() {
+        return new ArrayList<>(emailSet);
+    }
+
+    private boolean isValidEmail(String email) {
+        // TODO: add validation logic for email format
+        return true;
+    }
+}
